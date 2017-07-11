@@ -34,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tvCompany = (TextView) findViewById(R.id.tvCompany);
+        tvText = (TextView) findViewById(R.id.tvText);
+        btn1 = (Button)findViewById(R.id.btn1);
+        btn2 = (Button)findViewById(R.id.btn2);
+        btn3 = (Button)findViewById(R.id.btn3);
+
         FragmentManager fm = getSupportFragmentManager();
         SupportMapFragment mapFragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
 
@@ -46,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 UiSettings ui = map.getUiSettings();
                 ui.setZoomControlsEnabled(true);
 
-
+                LatLng poi_sg = new LatLng(1.3521, 103.8198);
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_sg,15));
 
                 //current location permission
                 int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
@@ -103,17 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
-        tvCompany = (TextView) findViewById(R.id.tvCompany);
-        tvText = (TextView) findViewById(R.id.tvText);
-        btn1 = (Button)findViewById(R.id.btn1);
-        btn2 = (Button)findViewById(R.id.btn2);
-        btn3 = (Button)findViewById(R.id.btn3);
-
-
-
-
-
 
     }
 }
